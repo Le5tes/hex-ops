@@ -37,13 +37,24 @@ Expect.prototype.formatResult = function () {
   }
 }
 
+beforeEach = function(lines, test) {
+  lines.forEach(function(line) {
+    line;
+  })
+  test.run();
+}
+
+beforeCommands = []
+
 describe = function (name, its) {
   document.getElementById('tests').innerHTML += `<div class="testTitle"><h3>${name}</h3></div>`;
+  beforefunc = (its.includes(beforeCommands) ? beforeCommands : []);
   its.forEach(function (test) {
-    test.run()
-  })
+    if(test instanceof Test) {
+      beforeEach(beforefunc, test)
+    };
+  });
   // document.getElementById('tests').innerHTML += ;
-
 };
 
 function Test(name, lines){
@@ -54,7 +65,7 @@ function Test(name, lines){
 Test.prototype.run = function(){
   document.getElementById('tests').innerHTML += `<div id="tests" class="container-flex it-title"><h4>${this.name}</h4></div>`;
   this.lines.forEach(function(line){
-    if (line instanceof Expect){line.formatResult()}
+    if (line instanceof Expect) { line.formatResult() }
   })
 }
 
@@ -81,5 +92,3 @@ loadSpec = function(path) {
   xhttp.open("GET", path, true);
   xhttp.send();
 }
-
-

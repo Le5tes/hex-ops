@@ -1,6 +1,9 @@
-testTile = new Tile
-
 describe("Tile", [
+
+  beforeCommands = [
+    testTile = new Tile
+  ],
+
   it("stores an array for units",[
   	expect((testTile.units) instanceof Array).toEqual(true)
   ]),
@@ -19,6 +22,11 @@ describe("Tile", [
 ])
 
 describe("Tile#add", [
+
+  beforeCommands = [
+    testTile = new Tile
+  ],
+
   it("can add a unit into the tile's unit array", [
     fakeUnit1 = new FakeUnit(1),
     testTile.add(fakeUnit1),
@@ -39,6 +47,11 @@ describe("Tile#spaceLeft", [
 ])
 
 describe("Tile#remove", [
+
+  beforeCommands = [
+    testTile = new Tile
+  ],
+
   it("removes a unit from the tile's unit array", [
     fakeUnit3 = new FakeUnit(1),
     testTile.add(fakeUnit3),
@@ -48,6 +61,11 @@ describe("Tile#remove", [
 ])
 
 describe("Tile#canAccomodate", [
+
+  beforeCommands = [
+    testTile = new Tile
+  ],
+
   it("returns true if the unit's size does not breach the capacity", [
     expect(testTile.canAccomodate(new FakeUnit(3))).toEqual(true)
   ]),
@@ -58,6 +76,12 @@ describe("Tile#canAccomodate", [
 ])
 
 describe("Tile#defend", [
+
+  beforeCommands = [
+    testTile = new Tile,
+    testTile.add(new FakeUnit(1))
+  ],
+
   it("returns a unit on the tile", [
     expect(testTile.defend() instanceof FakeUnit).toEqual(true)
   ]),

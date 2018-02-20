@@ -1,6 +1,9 @@
-testBoard = new Board
-
 describe("Board#determineWinner", [
+
+  beforeCommands = [
+    testBoard = new Board
+  ],
+
   it("should return attacker if defender was slain",[
     expect(testBoard.determineWinner(fakeAttacker = new FakeUnit(0,1),
     fakeDefender = new FakeUnit(0,0))).toEqual(fakeAttacker)
@@ -14,6 +17,11 @@ describe("Board#determineWinner", [
 ])
 
 describe("Board#rollDice", [
+
+  beforeCommands = [
+    testBoard = new Board
+  ],
+
   it("should return an integer", [
     expect(Number.isInteger(testBoard.rollDice(4))).toEqual(true)
   ]),
