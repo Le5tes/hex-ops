@@ -20,10 +20,13 @@ beforeEach(function(){
   fakeTile3.y = 1
   var fakePlayer = []
   test_soldier = new Unit('soldier', 1, 2, 1, 2, 'infantry', 2, 1, fakeTile, fakePlayer)
-  test_tank = new Unit('tank', 2, 2, 1, 2, 'vehicle', 4, 3, 'n/a', 'n/a')
+  test_tank = new Unit('tank', 2, 2, 1, 2, 'vehicle', 4, 3, fakeTile2, fakePlayer)
   fakeTile.add(test_soldier)
   fakePlayer.add(test_soldier)
-  function func() { return test_tank.attackTile(fakeTile) }
+  function func() {
+    test_tank.player = 'n/a'
+    return test_tank.attackTile(fakeTile) 
+  }
   testAttack = func.bind(fakeTile)
 })
 
@@ -66,11 +69,19 @@ describe("Unit#moveTo",[
 describe("Unit#attackTile", [
   it("returns a defending unit when a unit attacks a tile",[
     expect(testAttack()).toEqual(test_soldier)
+  ]),
+
+  it("units cannot attack non-adjacent tiles",[
+    expect(test_soldier.attackTile(fakeTile3)).toEqual(null)
+  ]),
+
+  it("units cannot attack tiles they are on",[
+    expect(test_soldier.attackTile(fakeTile)).toEqual(null)
+  ]),
+
+  it("units cannot attack friendly tiles",[
+    expect(test_soldier.attackTile(fakeTile2)).toEqual(null)
   ])
-  // it("units cannot attack tiles they are on",[
-  //   test_soldier.attackTile(fakeTile),
-  //   expect("some error code executed")
-  // ])
 ])
 
 describe("Unit#attackUnit", [

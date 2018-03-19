@@ -26,13 +26,21 @@ class Unit{
   }
 
   _canMoveTo(tile){
-    return (Math.abs(this.tile.x - tile.x + this.tile.y - tile.y) <= 1) &&
+    return this._isAdjacentTo(tile) &&
       (this.rangeCounter < this.movementRange) &&
       tile.canAccomodate(this)
   }
 
+  _canAttack(tile){
+    return this._isAdjacentTo(tile) && tile.units[0] && tile.units[0].player != this.player 
+  }
+
+  _isAdjacentTo(tile){
+    return (Math.abs(this.tile.x - tile.x + this.tile.y - tile.y) <= 1) 
+  }
+
   attackTile(tile){
-    return tile.defend()
+    return this._canAttack(tile) ? tile.defend() : null
   }
 
   attackUnit(unit){
