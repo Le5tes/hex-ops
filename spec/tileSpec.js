@@ -54,6 +54,11 @@ describe("Tile#canAccomodate", [
 
   it("returns false if the unit's size breaches the capacity", [
     expect(testTile.canAccomodate(new FakeUnit(10))).toEqual(false)
+  ]),
+
+  it("returns false if there is already a unit from a different player on the tile",[
+    testTile.add(new FakeUnit(1)),
+    expect(testTile.canAccomodate(new FakeUnit(1,1,2))).toEqual(false)
   ])
 ])
 

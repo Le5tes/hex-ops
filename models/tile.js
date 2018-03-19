@@ -7,7 +7,7 @@ class Tile {
   };
 
   canAccomodate(unit){
-  	return (this.spaceLeft() >= unit.size);
+   	return (this.spaceLeft() >= unit.size) && ( this.units[0] ? this.units[0].player == unit.player : true );
   };
 
   spaceLeft() {

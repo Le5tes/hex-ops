@@ -27,7 +27,8 @@ class Unit{
 
   _canMoveTo(tile){
     return (Math.abs(this.tile.x - tile.x + this.tile.y - tile.y) <= 1) &&
-      (this.rangeCounter < this.movementRange)
+      (this.rangeCounter < this.movementRange) &&
+      tile.canAccomodate(this)
   }
 
   attackTile(tile){

@@ -4,9 +4,9 @@ function Mocktile(){
 Mocktile.prototype.add = function(unit){ this.units.push(unit) }
 Mocktile.prototype.remove = function(unit){ this.units.remove(unit) }
 Mocktile.prototype.defend = function(){
-  console.log(this)
   return this.units[0]
  }
+Mocktile.prototype.canAccomodate = function() {return true}
 
 beforeEach(function(){
   fakeTile = new Mocktile()
@@ -55,6 +55,11 @@ describe("Unit#moveTo",[
   it("successful moves increment rangeCounter by 1",[
     test_soldier.moveTo(fakeTile2),
     expect(test_soldier.rangeCounter).toEqual(1)
+  ]),
+  it("won't move to a tile that can't accommodate it",[
+    fakeTile2.canAccomodate = function(){ return false},
+    test_soldier.moveTo(fakeTile2),
+    dont(expect(fakeTile2.units).toContain(test_soldier))
   ])
 ])
 
