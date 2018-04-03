@@ -12,3 +12,14 @@ describe('game#turn',[
 		])
 	])
 
+describe('game#nextTurn',[
+	it('increments whose turn it is',[
+		subject.nextTurn(),
+		expect(subject.turn()).toEqual(player2)
+		]),
+	it('loops back to the first player once all players have ahd a turn',[
+		subject.nextTurn(),
+		subject.nextTurn(),
+		expect(subject.turn()).toEqual(player1)
+		])
+	])
