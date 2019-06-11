@@ -14,5 +14,4 @@ class Game {
   	  this._turnCounter = 0
   	}
   }
-
 }

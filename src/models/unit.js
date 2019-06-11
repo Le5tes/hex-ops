@@ -13,7 +13,7 @@ class Unit{
     this.tile = tile;
     this.player = player;
     this.img = new Image;
-    this.img.src = `imgs/${this.name}.png`
+    this.img.src = `src/imgs/${this.name}.png`
   }
 
   moveTo(tile){

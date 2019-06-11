@@ -1,13 +1,10 @@
 class BoardDrawer {
 
-  constructor(boardConverter, canvas){
+  constructor(boardConverter, canvas, unitDrawer){
   	this.converter = boardConverter
   	this.canvas = canvas
-  	this.context = this.canvas.getContext("2d")
-  	this.context.fillStyle = "#00FF00";
-    this.context.strokeStyle = "#000000";
-    this.context.font = '10px Ariel'
-
+    this.context = this.setupContext(canvas);
+    this.unitDrawer = unitDrawer;
   }
 
    drawHex(tile){
@@ -30,10 +27,9 @@ class BoardDrawer {
     const coords = this.converter.boardToCanvas(tile.x,tile.y)
     coords.x = Math.round(coords.x)
     coords.y = Math.round(coords.y)
-    var ctxt = this.context;
     tile.units.forEach( (unit) => {
-      ctxt.drawImage(unit.img, coords.x - 10, coords.y - 8)
-    })
+      this.unitDrawer.draw(unit, coords);
+    });
   }
 
   draw(board){
@@ -48,4 +44,11 @@ class BoardDrawer {
     }
   }
 
+  setupContext(canvas) {
+    const context = this.canvas.getContext("2d");
+  	context.fillStyle = "#00FF00";
+    context.strokeStyle = "#000000";
+    context.font = '10px Ariel';
+    return context;
+  }
 }
