@@ -18,6 +18,9 @@ beforeEach(function(){
   fakeTile3 = new Mocktile()
   fakeTile3.x = 1
   fakeTile3.y = 1
+  fakeTile4 = new Mocktile()
+  fakeTile4.x = 3
+  fakeTile4.y = -3
   var fakePlayer = []
   test_soldier = new Unit('soldier', 1, 2, 1, 2, 'infantry', 2, 1, fakeTile, fakePlayer)
   test_tank = new Unit('tank', 2, 2, 1, 2, 'vehicle', 4, 3, fakeTile2, fakePlayer)
@@ -47,7 +50,9 @@ describe("Unit#moveTo",[
   ]),
   it("shouldn't be able to move to tiles that are not adjacent",[
     test_soldier.moveTo(fakeTile3),
-    dont(expect(fakeTile3.units).toContain(test_soldier))
+    dont(expect(fakeTile3.units).toContain(test_soldier)),
+    test_soldier.moveTo(fakeTile4),
+    dont(expect(fakeTile4.units).toContain(test_soldier))
   ]),
   it("should not move unit if that would exceed unit movement range", [
     test_soldier.moveTo(fakeTile2),

@@ -36,7 +36,7 @@ class Unit{
   }
 
   _isAdjacentTo(tile){
-    return (Math.abs(this.tile.x - tile.x + this.tile.y - tile.y) <= 1) 
+    return (Math.abs(this.tile.x - tile.x) <= 1) && (Math.abs(this.tile.y - tile.y) <= 1)  (Math.abs(this.tile.x - tile.x + this.tile.y - tile.y) <= 1) 
   }
 
   attackTile(tile){

@@ -25,8 +25,12 @@ class Interface {
   clickevent(x, y) {
     const coords = this.boardConverter.canvasToBoard(x, y)
     if (!this.tileSelected) {
-      this.tileSelected = this.board.tile(coords.x, coords.y)
-      console.log('tile selected')
+      const tileSelected = this.board.tile(coords.x, coords.y)
+
+      if (tileSelected.units[0]) {
+        this.tileSelected = tileSelected
+        console.log('tile selected')
+      }
     } else if (!this.unitSelected) {
       this.unitSelected = this.tileSelected.units[0]
       console.log('unit selected')
