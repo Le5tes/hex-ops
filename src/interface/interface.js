@@ -12,6 +12,9 @@ class Interface {
 
   setup() {
     this.board.generateTiles()
+    this.player1 = new Player(this.board.tile(-4,0))
+    this.player2 = new Player(this.board.tile(4,0))
+    this.game = new Game([this.player1, this.player2])
     setTimeout(()=>{this.draw()},10) //this hacky setTimout is only here for testing/demonstrations
     this.canvas.addEventListener('click', (event) => {
       var x = event.pageX - this.canvas.offsetLeft
