@@ -3,6 +3,9 @@ function MockTile(){
 }
 function MockUnit() {
   this.tile = 'not a tile'
+  this.rangeReset = false
+
+  this.resetRangeCounter = () => this.rangeReset = true
 }
 MockTile.prototype.add = function(unit){
   this.units.push(unit)
@@ -37,5 +40,12 @@ describe("Player#spawn", [
   it("removes the unit from the spawnpool", [
   	player.spawn(fakeUnit),
   	dont(expect(player.spawnPool).toContain(fakeUnit))
+  ])
+])
+describe("Player#endTurn", [
+  it("calls reset on all spawned units", [
+    player.spawn(fakeUnit),
+    player.endTurn(),
+    expect(fakeUnit.rangeReset).toEqual(true)
   ])
 ])

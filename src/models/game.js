@@ -9,6 +9,7 @@ class Game {
   }
 
   nextTurn(){
+	this.turn().endTurn()
   	this._turnCounter +=1 
   	if (this._turnCounter >= this.players.length){
   	  this._turnCounter = 0

@@ -3,6 +3,7 @@ class FakeUnit {
     this.size = size
     this.atk = atk
     this.player = player
+    this.rangeReset = false
   }
 
   attack() {
