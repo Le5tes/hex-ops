@@ -1,0 +1,11 @@
+{
+    "name": "recon_vehicle",
+    "displayName": "Armed Reconnaissance",
+    "vehicleAttack": 1,
+    "infantryAttack": 3,
+    "vehicleDefence": 1,
+    "infantryDefence": 2,
+    "movement": 2,
+    "unit_type": "vehicle",
+    "range": 0
+}

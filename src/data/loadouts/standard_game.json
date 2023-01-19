@@ -1,0 +1,11 @@
+{
+    "heavy_tank": 3,
+    "light_tank": 5,
+    "armoured_car": 3,
+    "recon_vehicle": 3,
+    "helicopter": 2,
+    "plane": 1,
+    "infantry": 15,
+    "rocket_infantry": 5,
+    "artillery": 2
+}

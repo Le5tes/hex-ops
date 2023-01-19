@@ -1,0 +1,11 @@
+{
+    "name": "heavy_tank",
+    "displayName": "Heavy Tank",
+    "vehicleAttack": 5,
+    "infantryAttack": 3,
+    "vehicleDefence": 4,
+    "infantryDefence": 2,
+    "movement": 1,
+    "unit_type": "vehicle",
+    "range": 0
+}

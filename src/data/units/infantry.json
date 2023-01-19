@@ -1,0 +1,11 @@
+{
+    "name":"infantry",
+    "displayName": "Infantry",
+    "vehicleAttack": 1,
+    "infantryAttack": 2,
+    "vehicleDefence": 1,
+    "infantryDefence": 2,
+    "movement": 1,
+    "unit_type": "infantry",
+    "range": 0
+}

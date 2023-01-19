@@ -1,0 +1,11 @@
+{
+    "name": "helicopter",
+    "displayName": "Helicopter",
+    "vehicleAttack": 3,
+    "infantryAttack": 3,
+    "vehicleDefence": 2,
+    "infantryDefence": 2,
+    "movement": 3,
+    "unit_type": "vehicle",
+    "range": 0
+}

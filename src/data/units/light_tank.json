@@ -1,0 +1,11 @@
+{
+    "name": "light_tank",
+    "displayName": "Light Tank",
+    "vehicleAttack": 3,
+    "infantryAttack": 4,
+    "vehicleDefence": 2,
+    "infantryDefence": 3,
+    "movement": 1,
+    "unit_type": "vehicle",
+    "range": 0
+}

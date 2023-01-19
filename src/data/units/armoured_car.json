@@ -1,0 +1,11 @@
+{
+    "name": "armoured_car",
+    "displayName": "Infantry Fighting Vehicle",
+    "vehicleAttack": 2,
+    "infantryAttack": 3,
+    "vehicleDefence": 1,
+    "infantryDefence": 3,
+    "movement": 1,
+    "unit_type": "vehicle",
+    "range": 0
+}

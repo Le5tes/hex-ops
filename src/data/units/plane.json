@@ -1,0 +1,11 @@
+{
+    "name": "plane",
+    "displayName": "War Bird",
+    "vehicleAttack": 4,
+    "infantryAttack": 4,
+    "vehicleDefence": 2,
+    "infantryDefence": 2,
+    "movement": 4,
+    "unit_type": "vehicle",
+    "range": 0
+}

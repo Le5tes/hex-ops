@@ -1,0 +1,11 @@
+{
+    "name":"rocket_infantry",
+    "displayName": "Rocket Infantry",
+    "vehicleAttack": 3,
+    "infantryAttack": 1,
+    "vehicleDefence": 3,
+    "infantryDefence": 1,
+    "movement": 1,
+    "unit_type": "infantry",
+    "range": 0
+}

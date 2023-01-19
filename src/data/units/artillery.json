@@ -1,0 +1,11 @@
+{
+    "name":"artillery",
+    "displayName": "Artillery",
+    "vehicleAttack": 4,
+    "infantryAttack": 4,
+    "vehicleDefence": 1,
+    "infantryDefence": 1,
+    "movement": 1,
+    "unit_type": "vehicle",
+    "range": 1
+}
