@@ -1,9 +1,10 @@
 class BoardConverter {
-  constructor(tileSize) {
+  constructor(tileSize, size = 4) {
     this.tileSize = tileSize
     this.tileShortAxis = Math.sqrt(1 - 0.5 ** 2) * tileSize
     this.startpointX = tileSize * 10
     this.startpointY = this.startpointX
+    this.size = size
   }
 
   boardToCanvas(x, y) {
@@ -16,5 +17,10 @@ class BoardConverter {
     const x2 = Math.round((x - this.startpointX) / (this.tileSize * 1.5))
     const y2 = Math.round(-(y - this.startpointY + (x2 * this.tileShortAxis)) / (this.tileShortAxis * 2))
     return { 'x': x2, 'y': y2 }
+  }
+
+  isOnBoard(x,y) {
+    const boardCoOrds = this.canvasToBoard(x,y)
+    return Math.abs(boardCoOrds.x) <= this.size && Math.abs(boardCoOrds.y) <= this.size && Math.abs(boardCoOrds.x + boardCoOrds.y) <= this.size
   }
 }

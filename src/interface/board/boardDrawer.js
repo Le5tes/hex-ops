@@ -45,7 +45,7 @@ class BoardDrawer {
   }
 
   setupContext(canvas) {
-    const context = this.canvas.getContext("2d");
+    const context = canvas.getContext("2d");
   	context.fillStyle = "#00FF00";
     context.strokeStyle = "#000000";
     context.font = '10px Ariel';
